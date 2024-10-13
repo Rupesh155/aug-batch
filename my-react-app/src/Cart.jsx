@@ -1,13 +1,17 @@
-import React from 'react';
-
-const Cart = ({ cartData }) => {
-  console.log(cartData,"hello ");
+import React, { useContext } from 'react';
+import { CartContext } from './Context';
+import './App.css'
+const Cart = ({  }) => {
+  // console.log(cartData,"hello ");
+   let {cart}=   useContext(CartContext)
+   console.log(cart,"context");
+   
   
   return (
     <div>
       <h2>Cart Items</h2>
-      {cartData.length > 0 ? (
-        cartData.map((item, index) => (
+      {cart.length > 0 ? (
+        cart.map((item, index) => (
           <div key={index} className='cart-item'>
             <img src={item.image} alt={item.name} />
             <p>{item.name}</p>
