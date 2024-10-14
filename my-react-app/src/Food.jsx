@@ -5,12 +5,22 @@ const Food = ({ apiData, cartData, SetCartData }) => {
   // console.log(SetCartData,"fun111");
   console.log(CartProvider,'CARTTTTTT');
   // let {distach}=    CartProvider
-  
+  // let [isTrue,]
       //  console.log(distach,'carrrr');
-      let {dispatch }=   useContext(CartContext)
+      let {dispatch,cart }=   useContext(CartContext)
       //  console.log( useContext(CartContext),"ye kiyaa");
-       
-        console.log( dispatch,'hjeh');
+      
+
+        function isTrue(id){
+          console.log(id,"heheh");
+          
+          return cart.some(cartItem => cartItem.id === id);
+      
+        }
+    
+        
+        
+  
         
          
   
@@ -23,6 +33,17 @@ const Food = ({ apiData, cartData, SetCartData }) => {
       type:"add",
       payload:item
     })
+
+
+  
+
+
+    }
+    function removeItem(item){
+      dispatch({
+        type:"remove",
+        payload:item
+      })
 
     // console.log(apiData,"heh");
     //       let filterData=apiData.filter((a,id)=>{
@@ -53,7 +74,7 @@ const Food = ({ apiData, cartData, SetCartData }) => {
   //     alert('Item already in cart');
   //   }
   };
-  let data=true
+
 
   return (
     <div>
@@ -61,10 +82,15 @@ const Food = ({ apiData, cartData, SetCartData }) => {
         <div key={item.id} id='card'>
           <img src={item.image} alt={item.name} />
           <p>{item.name}</p>
-          {
-            data?  <button onClick={() => addToCart(item)}>Add to Cart</button>:   <button >remove</button> 
-          }
-         
+
+          {isTrue(item.id) ? (
+            <button onClick={ ()=>removeItem(item)} >Remove</button>
+          ) : (
+            <button onClick={() => addToCart(item)}>Add to Cart</button>
+          )}
+
+
+           
        
 
         </div>

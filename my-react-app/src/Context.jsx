@@ -2,7 +2,8 @@ import { Children, createContext, useReducer } from "react";
 
 export const CartContext = createContext();
 let data={
-    cart:[]
+    cart:[],
+
 }
 function reduser(state,action){
     if(action.type==='add'){
@@ -12,7 +13,9 @@ function reduser(state,action){
         }
     }
     else  if(action.type==='remove'){
-        return   
+        return  {
+            ...state,cart:[...state.cart.filter((a,b)=>b!==action.payload.id)]
+        } 
 
     }
     else{

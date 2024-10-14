@@ -231,15 +231,16 @@ import {Routes,Route}   from 'react-router-dom'
 import Home from './Home'
 import Cart from './Cart'
 const App = () => {
-  let [cartData,SetCartData]=useState([])
+ 
   // console.log(cartData,"mainnnn");
   
    return (
     <div>
+  
       <NavBar/>
       <Routes>
-<Route   path='/'  element={<Home  cartData={cartData} SetCartData={SetCartData}   />}/>
-<Route   path='/cart'  element={<Cart cartData={cartData} SetCartData={SetCartData} />}/>
+<Route   path='/'  element={<Home    />}/>
+<Route   path='/cart'  element={<Cart  />}/>
 
       </Routes>
     </div>
@@ -247,3 +248,32 @@ const App = () => {
 }
 
 export default App
+
+// import React, { useMemo, useState } from 'react'
+
+// const App = () => {
+//   let [count,SetCount]=useState(0)
+//   // let randomValue=Math.random()
+ 
+
+//   let cash=   useMemo(()=>{
+//     function cal(){
+//       let result=0
+//       for(let i =0;i<10000000;i++){
+//         result+=i
+//       }
+//       return result
+      
+//     }
+//       return cal()
+//   },[])
+
+//   return (
+//     <div>
+//        <h4>{cash}</h4>
+//       <button onClick={()=>SetCount(count+1)}>  {count}click</button>
+//     </div>
+//   )
+// }
+
+// export default App
