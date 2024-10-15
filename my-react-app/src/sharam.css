@@ -1,0 +1,15 @@
+nav{
+    height: 40px;
+    display: flex;
+    background-color: black;
+    align-items: center;
+    justify-content: space-around;
+    /* background-color: red; */
+}
+*{
+    margin: 0;
+    padding: 0;
+}
+nav li {
+    color: wheat;
+}
